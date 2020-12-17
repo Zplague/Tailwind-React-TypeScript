@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <header className={`App-header ${theme?'dark':''}`}>
         <p className="bg-blue-200 dark:bg-black  m-4 p-7 text-6xl animate-pulse dark:text-gray-300">
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/App.tsx</code> and save to reload typescripts.
         </p>
         <FetchRandomUser/>
         <button onClick={toggleDark} className="bg-white shadow-sm dark:bg-blue-800 text-gray-900 dark:text-red-50 p-5">dark mode toggle</button>
