@@ -36,4 +36,13 @@ function Test() {
   )
 }
 
+<<<<<<< HEAD
 export default Test
+=======
+    return (
+      <div>
+      </div>
+    );
+  }
+}
+>>>>>>> 3936c51de60b48eb9c31d26f4c1e54361c2e287a
