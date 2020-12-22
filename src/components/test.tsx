@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 
-export default class FetchRandomUser extends React.Component {
-  state =  {
-    loading: true,
-    person: [],
-  };
+function Test() {
+  const [count, setCount] = useState(0);
+  const [item, setItem] = useState({
+    name:''
+  });
 
-  componentDidMount() {
-    const url = "http://swapi.dev/api/planets/1/";
-    const response =  fetch(url)
-    .then(response => response.json().then((user) => this.setState({ person: user })))
-    //this.setState({ person: data.results[0], loading: false });
-  }
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  },[count])
 
-  render() {
-   // data from the response.
-    console.log(this.state.person)
+  useEffect(() => {
+    fetch("https:swapi.dev/api/planets/1/")
+      .then((response) => response.json())
+      .then((data) => setItem(data));
+  }, []);
+  console.log("item", item);
 
-    if (this.state.loading) {
-      return <div>planets</div>;
-    }
+  return (
+    <div>
+      <p>You clicked {count} times</p>
 
-    if (!this.state.person) {
-      return <div>didn't get a planet</div>;
-    }
-
-    return (
-      <div>
-        <div>{this.state.person.name.title}</div>
-        <div>{this.state.person.name.first}</div>
-        <div>{this.state.person.name.last}</div>
-        <img src={this.state.person.picture.large} />
-      </div>
-    );
-  }
+      <ul>
+        {item.hasOwnProperty('name') && item.name}
+      </ul>
+      
+      <button className="m-8 p-8 border-r-8 border-red-700 bg-green-400 text-gray-800 hover:text-red-400 hover:bg-blue-400 transition-all" 
+              onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+      <button className="m-8 p-8" onClick={() => setCount(count - 1)}>
+        Click me to substract
+      </button>
+    </div>
+  )
 }
+
+export default Test
