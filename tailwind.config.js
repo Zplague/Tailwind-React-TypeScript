@@ -19,13 +19,14 @@ module.exports = {
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
-      red: colors.red,
-      yellow: colors.amber,
-      green: colors.emerald,
-      blue: colors.blue,
-      indigo: colors.indigo,
-      purple: colors.violet,
-      pink: colors.pink,
+      warmGray: colors.warmGray,
+      trueGray: colors.trueGray,
+      gray: colors.gray,
+      coolGray: colors.coolGray,
+      blueGray: colors.blueGray,
+      jedi: colors.jedi,
+      sith: colors.sith
+
     },
     spacing: {
       px: '1px',
