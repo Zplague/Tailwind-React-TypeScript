@@ -1,30 +1,35 @@
-import React from 'react'
-import { Paragraph } from '../components/Paragraph'
-import Test from '../components/test'
+import React, { useEffect, useState } from 'react'
+import { List } from '../components/List'
 
-export const ThemeContext = React.createContext('')
+export const Starships = () => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
 
-export const Home = () => {
-  const [theme, setTheme] = React.useState(false)
-  const toggleDark = () => { setTheme(!theme) }
+
+  const getPeople = async (object: string) => {
+    const response = await fetch(`http://swapi.dev/api/${object}/?page=${page}`)
+    const users = await response.json()
+    setData(users.results)
+  }
+
+  useEffect(() => {
+    getPeople('starships')
+  }, [page]);
+  
+
+  const next = () => {
+    setPage(page + 1)
+  }
+
+  const prev = () => {
+    if (page > 1) {
+      setPage(page - 1)
+    }
+  }
 
   return (
     <>
-      <header className={`bg-white ${theme ? 'dark' : ''}`}>
-      <button
-        onClick={toggleDark}
-        className="
-          dark:text-red-50 
-          dark:bg-blue-800 
-          shadow-sm 
-          bg-white 
-          text-gray-900 
-          p-5">
-        dark mode toggle
-      </button>
-        <Paragraph />
-        <Test />
-      </header>
+      <List next={next} prev={prev} data={data} />
     </>
   );
 }

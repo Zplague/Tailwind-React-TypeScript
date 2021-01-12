@@ -2,22 +2,23 @@ import React from 'react'
 
 type ThemeContextType = {
   theme: string;
-  setTheme: (value: string) => void;
+  setTheme?: (value: string) => void;
 };
 
-const ThemeContext = React.createContext<ThemeContextType | undefined>(undefined)
+const ThemeContextDefault = { theme: '' }
+const ThemeContext = React.createContext<ThemeContextType | undefined>(ThemeContextDefault)
 const ThemeContextUpdate = React.createContext('')
 
-export const ThemeProvider = ( children:React.ReactNode ) => {
-  const [theme, setTheme] = React.useState('')
+export const ThemeProvider = (children: React.ReactNode) => {
+  const [theme, setThemeDark] = React.useState({ theme: '' })
 
-  function toggleTheme():any {
-    setTheme('dark')
+  function toggleTheme(): any {
+    setThemeDark({ theme: 'dark' })
   }
 
   return (
     <ThemeContext.Provider value={theme}>
-      <ThemeContextUpdate.Provider value={toggleTheme}>
+      <ThemeContextUpdate.Provider value={'dark'}>
         {children}
       </ThemeContextUpdate.Provider>
     </ThemeContext.Provider>

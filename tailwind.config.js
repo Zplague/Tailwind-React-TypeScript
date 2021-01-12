@@ -618,7 +618,7 @@ module.exports = {
     textColor: (theme) => theme('colors'),
     textOpacity: (theme) => theme('opacity'),
     transitionDuration: {
-      DEFAULT: '150ms',
+      DEFAULT: '400ms',
       75: '75ms',
       100: '100ms',
       150: '150ms',

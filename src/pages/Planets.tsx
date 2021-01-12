@@ -1,9 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { List } from '../components/List'
 
 export const Planets = () => {
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+
+
+  const getPeople = async (object: string) => {
+    const response = await fetch(`http://swapi.dev/api/${object}/?page=${page}`)
+    const users = await response.json()
+    setData(users.results)
+  }
+
+  useEffect(() => {
+    getPeople('planets')
+  }, [page]);
+  
+
+  const next = () => {
+    setPage(page + 1)
+  }
+
+  const prev = () => {
+    if (page > 1) {
+      setPage(page - 1)
+    }
+  }
+
   return (
-    <div>
-      <h1>planets</h1>
-    </div>
-  )
+    <>
+      <List next={next} prev={prev} data={data} />
+    </>
+  );
 }

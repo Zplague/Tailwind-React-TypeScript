@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 function useGetRepos(object: string, index: number) {
-
   interface repos {
     name: string,
     climate?: string,
@@ -14,7 +13,7 @@ function useGetRepos(object: string, index: number) {
     fetch(`http://swapi.dev/api/${object}/${index}/`)
       .then((response) => response.json())
       .then((data) => setItem(data))
-  }, []);
+  }, [index]);
 
   return item
 }

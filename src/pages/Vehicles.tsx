@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { List } from '../components/List'
 
-export const People = () => {
+export const Vehicles = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -13,7 +13,7 @@ export const People = () => {
   }
 
   useEffect(() => {
-    getPeople('people')
+    getPeople('vehicles')
   }, [page]);
   
 
