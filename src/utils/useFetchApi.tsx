@@ -5,7 +5,7 @@ interface Props {
   pagination?: "next" | "prev";
 }
 
-const useFetchApi = ({param, index, pagination}:Props): any => {
+const useFetchApi = ({ param, index, pagination }: Props): any => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -13,6 +13,7 @@ const useFetchApi = ({param, index, pagination}:Props): any => {
     const response = await fetch(`http://swapi.dev/api/${param}/?page=${page}`);
     const result = await response.json();
     setData(result.results);
+  };
 
   switch (pagination) {
     case "next":
@@ -26,8 +27,7 @@ const useFetchApi = ({param, index, pagination}:Props): any => {
     default:
       break;
   }
-  return data;
+  return { data };
 };
 
-}
 export default useFetchApi;

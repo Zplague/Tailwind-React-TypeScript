@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { List } from '../components/List'
+import React, { useEffect, useState } from "react";
+import { List } from "../components/List";
 
 export const Starships = () => {
   const [data, setData] = useState([]);
@@ -27,9 +27,5 @@ export const Starships = () => {
     }
   }
 
-  return (
-    <>
-      <List next={next} prev={prev} data={data} />
-    </>
-  );
-}
+  return <>{<List next={next} prev={prev} data={data} />}</>;
+};
