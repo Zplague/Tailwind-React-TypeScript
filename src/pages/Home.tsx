@@ -10,20 +10,20 @@ export const Starships = () => {
 
   const getStarships = async (object: string) => {
     const response = await fetch(`http://swapi.dev/api/${object}/?page=${page}`)
-    const users = await response.json()
+    const data = await response.json()
     setLoading(false)
-    setData(users.results)
+    setData(data.results)
   }
 
   useEffect(() => {
     getStarships('starships')
   }, [page]);
   
-
   const next = () => {
+    
     setPage(page + 1)
   }
-
+  
   const prev = () => {
     if (page > 1) {
       setPage(page - 1)
@@ -35,7 +35,7 @@ export const Starships = () => {
     {
       loading 
         ? <ReactLoading type={"spin"} color="#a8a29e" height={60} width={60} className="mx-12" />
-        : <List next={next} prev={prev} data={data} />
+        : <List next={next} prev={prev} data={data}/>
     }
   </>
   );

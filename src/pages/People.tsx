@@ -35,7 +35,8 @@ export const People = () => {
     {
       loading 
         ? <ReactLoading type={"spin"} color="#a8a29e" height={60} width={60} className="mx-12" />
-        : <List next={next} prev={prev} data={data} />
+
+        : <div className="people"><List next={next} prev={prev} data={data} /></div>
     }
     </>
   );
