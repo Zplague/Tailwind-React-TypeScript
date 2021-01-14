@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400&display=swap');
+
+// Colors
+
+$hover-line-color: #a8a29e;
+
+// General Styling
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+footer {
+  height: 100px;
+  margin-top: 90px;
+  width: 100%;
+}
+
+.line {
+  transition: all .5s;
+  position: relative;
+
+  &:before {
+    background-color: $hover-line-color;
+    bottom: 10%;
+    content: '';
+    height: 1px;
+    position: absolute;
+    transition: all .5s;
+    width: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    
+    &:before {
+      width: 20%;
+    }
+  }
+}

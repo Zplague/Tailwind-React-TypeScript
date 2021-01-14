@@ -1,21 +1,22 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
+import "./index.scss";
 import { Starships } from "./pages/Home";
 import { Planets } from "./pages/Planets";
 import { Vehicles } from "./pages/Vehicles";
 import { People } from "./pages/People";
 import { Nav } from "./components/Nav";
+import AppTemplate from "./components/AppTemplate";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { ThemeContext } from "./utils/ThemeContex";
+import { Footer } from "./components/Footer";
 
 const App = () => {
-  const [theme] = React.useState(false)
+  const [theme] = React.useState(false);
 
   return (
-    <div>
-      <Router>
-        <ThemeContext.Provider value={{ theme }}>
+    <ThemeContext.Provider value={{ theme }}>
+      <AppTemplate>
+        <Router>
           <Nav />
           <Switch>
             <Route path="/" exact component={Starships} />
@@ -23,9 +24,10 @@ const App = () => {
             <Route path="/planets" component={Planets} />
             <Route path="/vehicles" component={Vehicles} />
           </Switch>
-        </ThemeContext.Provider>
-      </Router>
-    </div>
+        </Router>
+        <Footer />
+      </AppTemplate>
+    </ThemeContext.Provider>
   );
 };
 
