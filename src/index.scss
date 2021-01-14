@@ -59,7 +59,10 @@ footer {
 
 .info {
   border-radius: 50px;
+  text-transform: capitalize;
 }
+
+
 
 .info li {
   &:nth-last-child(1),
