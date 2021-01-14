@@ -13,7 +13,7 @@ const AppTemplate = ({ children }: any) => {
   };
 
   return (
-    <div className={`${theme ? "dark" : " "} bg-blueGray-50 dark:bg-sith-4`}>
+    <div className={`${theme ? "dark" : " "} bg-blueGray-50 dark:bg-sith-4 h-screen`}>
       <button
         onClick={toggleDark}
         className="

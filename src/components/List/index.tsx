@@ -9,7 +9,7 @@ export type starList = {
 export const List = ({ data, next, prev }: starList) => {
   return (
     <>
-      <div className="m-4 flex justify-center flex-col items-start">
+      <div className="p-4 bg-blueGray-50 dark:bg-sith-4 flex justify-center flex-col items-start">
         <ul className="mx-5 text-coolGray-800 dark:text-blueGray-50 font-semibold text-lg">
           {data.map((obj: any, index: number) => (
             <li
