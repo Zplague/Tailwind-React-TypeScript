@@ -27,6 +27,7 @@ $c6: #6b657e;
    right: -10vw;
    width: $p * 12;
    height: $p * 30;
+   overflow: hidden;
 }
 
 
@@ -783,9 +784,9 @@ $c6: #6b657e;
 
 @include keyframes(go){
    0%{
-      right:-10vw;
+      right: 0vw;
    }
    100%{
-      right:110vw;
+      right: 100vw;
    }
 }
