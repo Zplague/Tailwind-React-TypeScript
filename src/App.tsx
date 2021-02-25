@@ -1,22 +1,34 @@
-import * as React from 'react';
-import './App.css';
-import Test from './components/test'
+import React from "react";
+import "./index.scss";
+import { Starships } from "./pages/Home";
+import { Planets } from "./pages/Planets";
+import { Vehicles } from "./pages/Vehicles";
+import { People } from "./pages/People";
+import { Nav } from "./components/Nav";
+import AppTemplate from "./components/AppTemplate";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { ThemeContext } from "./utils/ThemeContex";
+import { Footer } from "./components/Footer";
 
-function App() {
-  const [theme,setTheme] = React.useState(false)
-  const toggleDark = () => {setTheme(!theme)}
+const App = () => {
+  const [theme] = React.useState(false);
+
   return (
-    <div className="App">
-      <header className={`App-header ${theme?'dark':''}`}>
-        <p className="bg-blue-200 dark:bg-black  m-4 p-7 text-6xl animate-pulse dark:text-gray-300">
-          Edit <code>src/App.tsx</code> and save to reload typescripts.
-        </p>
-        <Test />
-        <button onClick={toggleDark} className="bg-white shadow-sm dark:bg-blue-800 text-gray-900 dark:text-red-50 p-5">dark mode toggle</button>
-      </header>
-    </div>
-
+    <ThemeContext.Provider value={{ theme }}>
+      <AppTemplate>
+        <Router>
+          <Nav />
+          <Switch>
+            <Route path="/" exact component={Starships} />
+            <Route path="/people" component={People} />
+            <Route path="/planets" component={Planets} />
+            <Route path="/vehicles" component={Vehicles} />
+          </Switch>
+        </Router>
+        <Footer />
+      </AppTemplate>
+    </ThemeContext.Provider>
   );
-}
+};
 
 export default App;

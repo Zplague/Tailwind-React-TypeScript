@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,400&display=swap');
+
+// Colors
+
+$hover-line-color: #a8a29e;
+
+// General Styling
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.line {
+  transition: all .5s;
+  position: relative;
+
+  &:before {
+    background-color: $hover-line-color;
+    bottom: 10%;
+    content: '';
+    height: 1px;
+    position: absolute;
+    transition: all .5s;
+    width: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    
+    &:before {
+      width: 20%;
+    }
+  }
+}
+
+.info {
+  border-radius: 50px;
+  text-transform: capitalize;
+}
+
+
+
+.info li {
+  &:nth-last-child(1),
+  &:nth-last-child(2),
+  &:nth-last-child(3),
+  &:nth-last-child(4),
+  &:nth-last-child(5),
+  &:nth-last-child(6) {
+      display: none;
+    }
+  }
+
+.people {
+  .info li {
+    &:nth-last-child(1),
+    &:nth-last-child(2),
+    &:nth-last-child(3),
+    &:nth-last-child(4),
+    &:nth-last-child(5),
+    &:nth-last-child(6),
+    &:nth-last-child(7),
+    &:nth-last-child(8) {
+        display: none;
+      }
+    }
+}
